@@ -1,0 +1,81 @@
+.nav {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  position: relative;
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.btn:hover {
+  color: var(--color-text-white);
+}
+
+.btnActive {
+  color: var(--color-text-white);
+}
+
+.btnActive::after {
+  transform: scaleX(1);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.count {
+  font-size: 0.6rem;
+  color: var(--color-text-faint);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  background: var(--color-border);
+  padding: 2px 6px;
+  border-radius: 2px;
+  transition: background var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+}
+
+.btnActive .count {
+  background: var(--color-gold-tint);
+  color: var(--color-gold);
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 8px 14px;
+  }
+}

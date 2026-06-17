@@ -1,0 +1,122 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Top-right model info */
+.meta {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  z-index: 2;
+}
+
+.modelName {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.875rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-gold);
+  margin-top: 4px;
+  line-height: 1.1;
+}
+
+/* glow disabled — photo uses mix-blend-mode: multiply */
+.glow { display: none; }
+
+.imageWrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 780px;
+  margin: auto;
+  user-select: none;
+  /* pan-y: browser handles vertical scroll; we handle horizontal drag for rotation */
+  touch-action: pan-y;
+  padding-bottom: 36px; /* space for dragHint without overflow clip */
+}
+
+/* GPU layer only while actively animating — toggled by JS */
+.imageWrap.animating {
+  will-change: transform;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* For transparent PNGs — no blend needed */
+.imageNoBlend {
+  mix-blend-mode: normal;
+}
+
+/* Colour tint overlay — multiplied over the shoe */
+.colorOverlay {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+  transition: background 0.35s ease;
+}
+
+/* Drag hint pill */
+.dragHint {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.imageWrap:active .dragHint {
+  opacity: 0;
+}
+
+.dragIcon {
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    padding-top: 40px;
+  }
+
+  .meta {
+    position: static;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+}

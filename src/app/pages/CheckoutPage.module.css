@@ -1,0 +1,493 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.main {
+  flex: 1;
+  padding-top: var(--nav-height);
+}
+
+.pageHeader {
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 72px 0 52px;
+}
+
+.pageHeaderInner,
+.checkoutInner,
+.assuranceInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.pageHeaderInner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-text-white);
+}
+
+.breadcrumbSep {
+  color: var(--color-text-faint);
+}
+
+.headingRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 40px;
+  align-items: end;
+}
+
+.headingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.headingAccent {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.headingMeta {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.subheading {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+.sectionLabel,
+.summaryLabel {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.sectionHeading,
+.summaryHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.06;
+  margin-top: 12px;
+}
+
+.checkoutSection {
+  padding: 88px 0 96px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.checkoutInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 430px;
+  gap: 48px;
+  align-items: start;
+}
+
+.flowHeader {
+  margin-bottom: 36px;
+}
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.panel,
+.summary {
+  border: 1px solid var(--color-border-subtle);
+  background: rgba(20, 20, 20, 0.92);
+}
+
+.panel {
+  padding: 30px;
+}
+
+.panelHeader {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.stepNumber {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(201, 168, 76, 0.38);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.panelLabel {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.1;
+  margin-top: 6px;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.field:first-child {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field dt,
+.checkRow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.field dd {
+  width: 100%;
+  border: 1px solid var(--color-border-subtle);
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--color-text-white);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 14px 16px;
+}
+
+.paymentCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid rgba(201, 168, 76, 0.24);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(201, 168, 76, 0.12), transparent 42%),
+    rgba(255, 255, 255, 0.035);
+}
+
+.paymentName {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-text-white);
+}
+
+.paymentDetail {
+  margin-top: 8px;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.paymentCard span {
+  color: var(--color-gold);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.checkRow {
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
+.summary {
+  padding: 28px;
+  position: sticky;
+  top: calc(var(--nav-height) + 32px);
+}
+
+.summaryHeading {
+  font-size: 2rem;
+}
+
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.orderItem {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.orderImage {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  padding: 10px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(201, 168, 76, 0.1), transparent 52%),
+    var(--color-bg-card);
+}
+
+.orderItem h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.2;
+}
+
+.orderItem p {
+  margin-top: 5px;
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.orderItem strong {
+  grid-column: 2;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.summaryLines {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summaryLine,
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.summaryLine {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.summaryLine strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-text-white);
+}
+
+.summaryTotal {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-white);
+}
+
+.summaryTotal strong {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-gold);
+}
+
+.summaryNotes {
+  margin: 28px 0;
+  padding: 22px 0;
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.submitBtn {
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.assurance {
+  padding: 120px 0;
+}
+
+.assuranceInner {
+  max-width: 760px;
+  text-align: center;
+}
+
+.assuranceHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.05;
+  margin: 16px 0 20px;
+}
+
+.assuranceBody {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+@media (max-width: 1180px) {
+  .pageHeaderInner,
+  .checkoutInner,
+  .assuranceInner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .headingRow,
+  .checkoutInner {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .pageHeader {
+    padding: 52px 0 40px;
+  }
+
+  .pageHeaderInner,
+  .checkoutInner,
+  .assuranceInner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .checkoutSection {
+    padding: 64px 0;
+  }
+
+  .fieldGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .paymentCard {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .assurance {
+    padding: 88px 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .pageHeaderInner,
+  .checkoutInner,
+  .assuranceInner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .panel,
+  .summary {
+    padding: 24px;
+  }
+
+  .panelHeader {
+    flex-direction: column;
+  }
+
+  .orderItem {
+    grid-template-columns: 1fr;
+  }
+
+  .orderImage {
+    width: 100%;
+    height: 160px;
+  }
+
+  .orderItem strong {
+    grid-column: 1;
+  }
+
+  .summaryLine,
+  .summaryTotal {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

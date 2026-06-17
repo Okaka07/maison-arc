@@ -1,0 +1,433 @@
+/* ── Full-screen immersive layout ── */
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* ── Main split ── */
+.layout {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  flex: 1;
+  min-height: 0;             /* allow children to scroll independently */
+  margin-top: 56px;          /* ConfigHeader height */
+}
+
+/* ── Left: viewer ── */
+.viewerCol {
+  position: relative;
+  border-right: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.viewerInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  padding: 32px 48px;
+}
+
+/* Live colour dots */
+.configDots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.configDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+
+.viewerMeta {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  text-align: center;
+}
+
+/* ── Right: step panel ── */
+.stepCol {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.stepInner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 48px;
+}
+
+/* Step content area with slide animation */
+.stepContent {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 36px 0 8px;
+  min-height: 0;
+}
+
+/* Custom scrollbar */
+.stepContent::-webkit-scrollbar        { width: 3px; }
+.stepContent::-webkit-scrollbar-track  { background: transparent; }
+.stepContent::-webkit-scrollbar-thumb  { background: var(--color-border); border-radius: 2px; }
+
+/* ── Slide animations ── */
+@keyframes slideFromRight {
+  from { transform: translateX(48px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes slideFromLeft {
+  from { transform: translateX(-48px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+.slideInRight {
+  animation: slideFromRight 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.slideInLeft {
+  animation: slideFromLeft 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Step heading (replaces inline styles) ── */
+.stepHeadingWrap {
+  margin-bottom: 8px;
+}
+
+.stepHeadingTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.stepHeadingSub {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+/* ── Focus ring suppression for programmatic focus ── */
+.stepContent:focus {
+  outline: none;
+}
+
+/* Option step wrapper */
+.optionPage {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Prev / Next nav bar ── */
+.stepNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0 28px;
+  border-top: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
+}
+
+.stepIndicator {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-faint);
+}
+
+.prevBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  padding: 12px 20px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
+  outline: none;
+}
+
+.prevBtn:hover:not(:disabled) {
+  border-color: var(--color-text-muted);
+  color: var(--color-text-white);
+}
+
+.prevBtn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.prevBtn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.nextBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-gold);
+  border: none;
+  cursor: pointer;
+  padding: 13px 28px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+  outline: none;
+}
+
+.nextBtn:hover:not(:disabled) {
+  background-color: var(--color-gold-light);
+}
+
+.nextBtn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.nextBtnDisabled {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+/* ── Monogram section (inline in step 3) ── */
+.monoGroup {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.monoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.monoLabel {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-white);
+}
+
+.monoOpt {
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.monoPrice {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-gold-dim);
+}
+
+.monoRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.monoInput {
+  width: 160px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  padding: 10px 14px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--color-text-white);
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.monoInput::placeholder {
+  color: var(--color-text-faint);
+  letter-spacing: 0.08em;
+  font-size: 0.875rem;
+}
+
+.monoInput:focus {
+  border-color: var(--color-gold);
+}
+
+.monoCount {
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-faint);
+}
+
+.monoHint {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ── Confirmation screen ── */
+.confirmationPage {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  padding: 40px 24px;
+}
+
+.confirmationInner {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.confirmationIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  font-size: 1.25rem;
+}
+
+.confirmationHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.confirmationSub {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.confirmationMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.confirmationBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2px;
+  margin-top: 8px;
+  transition: color var(--duration-base) var(--ease-out), border-color var(--duration-base) var(--ease-out);
+}
+
+.confirmationBack:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: clamp(200px, 34svh, 300px) 1fr;
+    overflow-y: auto;
+    height: calc(100svh - 56px);
+  }
+
+  .viewerCol {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-subtle);
+    height: 100%;
+  }
+
+  .viewerInner {
+    padding: 20px 24px;
+  }
+
+  .stepInner {
+    padding: 0 24px;
+  }
+
+  .stepContent {
+    padding-top: 24px;
+  }
+
+  .stepCol {
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepInner {
+    padding: 0 20px;
+  }
+}

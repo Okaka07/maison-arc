@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360">
+  <defs>
+    <linearGradient id="ug" x1="0%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%"   stop-color="#f2e8cc"/>
+      <stop offset="100%" stop-color="#cec090"/>
+    </linearGradient>
+    <linearGradient id="ug2" x1="0%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%"   stop-color="#e4d8b0"/>
+      <stop offset="100%" stop-color="#b6a270"/>
+    </linearGradient>
+    <linearGradient id="soleG" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#1c1c1a"/>
+      <stop offset="100%" stop-color="#060604"/>
+    </linearGradient>
+    <radialGradient id="flr" cx="50%" cy="100%" r="50%">
+      <stop offset="0%"   stop-color="#1a1204" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0d0d0d"  stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- floor glow -->
+  <ellipse cx="350" cy="342" rx="300" ry="44" fill="url(#flr)"/>
+
+  <!-- ══════════════════════════════════
+       BACK SHOE  (dimmed, offset up-left)
+       ══════════════════════════════════ -->
+  <g transform="translate(-50,-34)" opacity="0.60">
+    <!-- outsole -->
+    <rect x="88" y="288" width="380" height="26" rx="13" fill="#0c0c0a"/>
+    <!-- toe-spring: sole curves up at front -->
+    <path d="M 88 288 Q 78 280 78 268 Q 78 256 90 250 L 90 288 Z" fill="#0c0c0a"/>
+    <!-- midsole -->
+    <rect x="90" y="272" width="378" height="20" rx="10" fill="#1e1e1c"/>
+    <path d="M 90 272 Q 82 266 82 256 Q 82 248 90 244 L 90 272 Z" fill="#1e1e1c"/>
+    <!-- upper:
+         Toe face: x=90, curves from midsole (y=270) up to toe-box shoulder (x=120,y=188)
+         Top: rises to tongue peak (x=248,y=124) then flat to (x=360,y=130)
+         Collar dip: sharp dip to (x=430,y=180) — this is the ankle opening
+         Heel counter: rises to (x=470,y=156) then down heel face to (x=476,y=272)
+    -->
+    <path d="
+      M 90 270
+      Q 82 250  86 222
+      Q 90 200 108 186
+      Q 126 172 152 162
+      Q 184 150 220 146
+      Q 256 142 284 146
+      Q 312 150 330 162
+      Q 346 174 348 190
+      L 360 182
+      Q 382 162 414 158
+      Q 440 156 458 168
+      Q 472 180 472 200
+      Q 474 224 470 246
+      Q 468 262 462 270
+      L 468 272
+      L 90 272 Z"
+          fill="url(#ug2)"/>
+    <!-- tongue -->
+    <path d="M 236 146 Q 248 140 260 141 Q 272 142 279 150 Q 284 158 282 168 L 274 260 Q 268 265 260 264 Q 252 263 247 257 Z"
+          fill="#ddd0aa" opacity="0.62"/>
+    <!-- laces (4 pairs, upper half of shoe) -->
+    <line x1="128" y1="166" x2="316" y2="176" stroke="#f0e8cc" stroke-width="2" stroke-linecap="round" opacity="0.76"/>
+    <line x1="133" y1="184" x2="310" y2="192" stroke="#f0e8cc" stroke-width="2" stroke-linecap="round" opacity="0.70"/>
+    <line x1="140" y1="204" x2="304" y2="210" stroke="#f0e8cc" stroke-width="2" stroke-linecap="round" opacity="0.64"/>
+    <line x1="148" y1="224" x2="296" y2="229" stroke="#f0e8cc" stroke-width="2" stroke-linecap="round" opacity="0.58"/>
+    <!-- eyelets L -->
+    <circle cx="129" cy="166" r="3" fill="#c9a84c" opacity="0.86"/>
+    <circle cx="134" cy="184" r="3" fill="#c9a84c" opacity="0.86"/>
+    <circle cx="141" cy="204" r="3" fill="#c9a84c" opacity="0.86"/>
+    <circle cx="149" cy="224" r="3" fill="#c9a84c" opacity="0.86"/>
+    <!-- eyelets R -->
+    <circle cx="315" cy="176" r="3" fill="#c9a84c" opacity="0.86"/>
+    <circle cx="309" cy="192" r="3" fill="#c9a84c" opacity="0.86"/>
+    <circle cx="303" cy="210" r="3" fill="#c9a84c" opacity="0.86"/>
+    <circle cx="295" cy="229" r="3" fill="#c9a84c" opacity="0.86"/>
+    <!-- heel counter seam -->
+    <path d="M 458 170 Q 472 192 470 222 Q 468 248 456 266" stroke="#c8b884" stroke-width="1.2" fill="none" opacity="0.44"/>
+  </g>
+
+  <!-- ══════════════════════════════════
+       FRONT SHOE — main hero
+
+       Key profile heights (y) at these x positions:
+       x=110 toe-face  → top y≈208 (near-vertical front face)
+       x=148 toe-box   → top y≈142
+       x=200 vamp rise → top y≈118
+       x=265 tongue    → top y≈108  ← highest point
+       x=370 lacing    → top y≈113
+       x=420 end lace  → top y≈122
+       x=468 collar    → top y≈178  ← big dip (ankle opening)
+       x=520 heel ctr  → top y≈152
+       x=572 heel top  → top y≈164
+       x=588 heel back → starts curving down to midsole at y≈278
+       ══════════════════════════════════ -->
+  <g transform="translate(50,34)">
+
+    <!-- ground shadow -->
+    <ellipse cx="300" cy="328" rx="218" ry="11" fill="#000" opacity="0.40"/>
+
+    <!-- ── OUTSOLE ── -->
+    <rect x="108" y="298" width="474" height="30" rx="15" fill="url(#soleG)"/>
+    <!-- Toe-spring: the front of the sole angles UP, characteristic of sneakers -->
+    <path d="M 108 298 Q 96 290 92 276 Q 90 264 96 256 Q 102 248 114 248 L 114 298 Z" fill="url(#soleG)"/>
+    <!-- Heel block (slightly taller) -->
+    <rect x="580" y="284" width="22" height="44" rx="11" fill="url(#soleG)"/>
+    <!-- Outsole underside -->
+    <rect x="108" y="310" width="474" height="18" rx="9" fill="#060604"/>
+    <!-- grip lines -->
+    <line x1="136" y1="309" x2="558" y2="309" stroke="#141412" stroke-width="1.4" opacity="0.50"/>
+    <line x1="136" y1="317" x2="558" y2="317" stroke="#0e0e0c" stroke-width="0.9" opacity="0.38"/>
+
+    <!-- ── MIDSOLE ── -->
+    <rect x="110" y="280" width="472" height="22" rx="11" fill="#222220"/>
+    <!-- midsole toe-spring curve (matches outsole) -->
+    <path d="M 110 280 Q 98 272 96 260 Q 94 248 102 242 Q 110 236 118 240 L 118 280 Z" fill="#222220"/>
+    <!-- heel midsole -->
+    <rect x="580" y="270" width="20" height="34" rx="10" fill="#222220"/>
+    <!-- midsole top highlight line -->
+    <path d="M 100 280 Q 345 272 590 280" stroke="#2e2e2c" stroke-width="1.4" fill="none"/>
+
+    <!-- ── UPPER BODY ──
+         Profile: toe-face (left, low) → rises to tongue (highest) → collar DIP (right-centre) → heel counter
+         Bottom edge is flat at y=278 (midsole top)
+    -->
+    <path d="
+      M 110 278
+      Q 100 268  96 250
+      Q 92  230  98 208
+      Q 104 188 118 174
+      Q 134 160 158 150
+      Q 184 140 216 136
+      Q 250 132 280 134
+      Q 308 136 330 148
+      Q 348 158 352 174
+      L 366 164
+      Q 392 148 424 146
+      Q 454 144 476 158
+      Q 494 170 498 192
+      Q 502 218 498 244
+      Q 496 262 488 272
+      L 500 272
+      Q 534 268 556 252
+      Q 574 238 578 216
+      Q 582 194 578 172
+      Q 574 154 564 164
+      L 584 278
+      L 110 278 Z"
+          fill="url(#ug)"/>
+
+    <!-- Toe face shading (left vertical face, slightly darker) -->
+    <path d="M 110 278 Q 100 266 96 248 Q 92 228 98 206 Q 104 186 118 172 Q 104 188 100 212 Q 96 236 100 260 Z"
+          fill="#8a7040" opacity="0.20"/>
+
+    <!-- Toe box top highlight (catches light on top-front of toe) -->
+    <path d="M 122 154 Q 148 138 186 130 Q 228 122 272 126 Q 306 130 328 144 Q 304 128 270 124 Q 228 120 186 128 Z"
+          fill="#fff" opacity="0.09"/>
+
+    <!-- Toe cap seam line (separates toe box from vamp) -->
+    <path d="M 100 210 Q 110 178 134 160 Q 158 144 192 136 Q 224 128 258 128"
+          stroke="#d2c28a" stroke-width="1.4" fill="none" opacity="0.52"/>
+
+    <!-- Vamp crease lines -->
+    <path d="M 116 258 Q 154 244 202 240 Q 248 238 288 240"
+          stroke="#ccc088" stroke-width="0.9" fill="none" opacity="0.30"/>
+
+    <!-- Collar opening — the ankle cutout, shows as a C-shaped curve cutting into upper -->
+    <!-- Dark shape that represents the ankle cavity -->
+    <path d="M 364 166 Q 392 150 426 148 Q 460 146 484 162 Q 505 176 508 200 Q 512 224 504 248 Q 498 264 490 272 L 498 272 Q 508 260 514 240 Q 520 216 516 190 Q 512 166 492 152 Q 468 138 438 138 Q 408 138 383 154 Z"
+          fill="#0d0d0d" opacity="0.55"/>
+
+    <!-- Heel counter fill (cream, on top of collar dark) -->
+    <path d="M 500 272 Q 536 270 558 254 Q 578 240 582 216 Q 586 190 580 168 Q 574 148 562 158 L 584 278 Z"
+          fill="url(#ug)"/>
+
+    <!-- Heel counter seam -->
+    <path d="M 562 160 Q 578 184 578 216 Q 576 244 558 260 Q 546 270 530 274"
+          stroke="#d0c088" stroke-width="1.4" fill="none" opacity="0.50"/>
+
+    <!-- Heel counter stitching detail -->
+    <path d="M 560 168 Q 574 192 572 220 Q 570 246 554 262"
+          stroke="#bfae78" stroke-width="0.8" fill="none" stroke-dasharray="4,3" opacity="0.38"/>
+
+    <!-- ── TONGUE ── -->
+    <path d="
+      M 256 134
+      Q 270 126 286 127
+      Q 302 128 312 138
+      Q 318 148 316 160
+      L 306 268
+      Q 299 274 290 274
+      Q 280 274 273 266
+      Q 268 258 266 248 Z"
+          fill="#ecdeb8" opacity="0.76"/>
+    <!-- tongue centre stitch -->
+    <path d="M 289 129 L 287 272" stroke="#d0c08c" stroke-width="0.8" fill="none" opacity="0.40"/>
+    <!-- tongue fold at top -->
+    <path d="M 258 136 Q 270 128 287 128 Q 304 128 313 137 L 309 143 Q 300 134 287 134 Q 273 133 262 142 Z"
+          fill="#f4e8c8" opacity="0.42"/>
+
+    <!-- ── LACE VAMP PANEL (subtle background) ── -->
+    <path d="M 174 142 Q 214 126 258 124 Q 302 122 334 136 Q 360 148 364 166 L 356 184 Q 334 165 304 154 Q 270 143 236 143 Q 200 142 170 156 Z"
+          fill="#bfae78" opacity="0.16"/>
+
+    <!-- ── LACES — 5 pairs, angled slightly (higher at tongue side) ── -->
+    <!-- Lace 1 (topmost, closest to tongue) -->
+    <line x1="174" y1="150" x2="358" y2="162" stroke="#f8f2d6" stroke-width="2.8" stroke-linecap="round" opacity="0.93"/>
+    <!-- Lace 2 -->
+    <line x1="180" y1="172" x2="352" y2="182" stroke="#f8f2d6" stroke-width="2.8" stroke-linecap="round" opacity="0.86"/>
+    <!-- Lace 3 -->
+    <line x1="188" y1="196" x2="344" y2="205" stroke="#f8f2d6" stroke-width="2.8" stroke-linecap="round" opacity="0.79"/>
+    <!-- Lace 4 -->
+    <line x1="198" y1="220" x2="335" y2="228" stroke="#f8f2d6" stroke-width="2.8" stroke-linecap="round" opacity="0.72"/>
+    <!-- Lace 5 (lowest) -->
+    <line x1="210" y1="246" x2="325" y2="252" stroke="#f8f2d6" stroke-width="2.8" stroke-linecap="round" opacity="0.65"/>
+
+    <!-- Lace vertical strands (tongue sides) -->
+    <path d="M 244 130 Q 246 183 248 264" stroke="#ece0b6" stroke-width="1.9" fill="none" opacity="0.50"/>
+    <path d="M 318 138 Q 315 190 311 266" stroke="#ece0b6" stroke-width="1.9" fill="none" opacity="0.50"/>
+
+    <!-- Bow knot (lace loop at top of tongue) -->
+    <path d="M 254 136 Q 262 118 280 112 Q 298 108 308 116 Q 320 126 318 138"
+          stroke="#f4ead0" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.86"/>
+    <path d="M 252 134 Q 234 114 226 122 Q 220 132 228 144"
+          stroke="#f4ead0" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.70"/>
+    <path d="M 320 138 Q 338 118 346 126 Q 352 136 344 148"
+          stroke="#f4ead0" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.70"/>
+
+    <!-- ── GOLD EYELETS LEFT ── -->
+    <circle cx="175"  cy="150" r="4.5" fill="#c9a84c"/>
+    <circle cx="181"  cy="172" r="4.5" fill="#c9a84c"/>
+    <circle cx="189"  cy="196" r="4.5" fill="#c9a84c"/>
+    <circle cx="199"  cy="220" r="4.5" fill="#c9a84c"/>
+    <circle cx="211"  cy="246" r="4.5" fill="#c9a84c"/>
+    <!-- eyelet highlights -->
+    <circle cx="173"  cy="147" r="1.8" fill="#e8c870" opacity="0.80"/>
+    <circle cx="179"  cy="169" r="1.8" fill="#e8c870" opacity="0.80"/>
+    <circle cx="187"  cy="193" r="1.8" fill="#e8c870" opacity="0.80"/>
+    <circle cx="197"  cy="217" r="1.8" fill="#e8c870" opacity="0.80"/>
+    <circle cx="209"  cy="243" r="1.8" fill="#e8c870" opacity="0.80"/>
+
+    <!-- ── GOLD EYELETS RIGHT ── -->
+    <circle cx="357" cy="162" r="4.5" fill="#c9a84c"/>
+    <circle cx="351" cy="182" r="4.5" fill="#c9a84c"/>
+    <circle cx="343" cy="205" r="4.5" fill="#c9a84c"/>
+    <circle cx="334" cy="228" r="4.5" fill="#c9a84c"/>
+    <circle cx="324" cy="252" r="4.5" fill="#c9a84c"/>
+    <!-- eyelet highlights -->
+    <circle cx="355" cy="159" r="1.8" fill="#e8c870" opacity="0.80"/>
+    <circle cx="349" cy="179" r="1.8" fill="#e8c870" opacity="0.80"/>
+    <circle cx="341" cy="202" r="1.8" fill="#e8c870" opacity="0.80"/>
+    <circle cx="332" cy="225" r="1.8" fill="#e8c870" opacity="0.80"/>
+    <circle cx="322" cy="249" r="1.8" fill="#e8c870" opacity="0.80"/>
+
+    <!-- ── WELT SEAM (upper meets midsole) ── -->
+    <path d="M 112 280 Q 345 290 576 280" stroke="#c4b888" stroke-width="0.9" fill="none" opacity="0.36"/>
+  </g>
+</svg>

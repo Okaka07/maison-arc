@@ -1,0 +1,235 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+
+.main {
+  flex: 1;
+  padding-top: var(--nav-height);
+}
+
+/* ── Page header ── */
+.pageHeader {
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 72px 0 48px;
+}
+
+.pageHeaderInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.breadcrumbSep {
+  color: var(--color-text-faint);
+}
+
+.headingRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.headingAccent {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.headingCount {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.subheading {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  max-width: 540px;
+}
+
+/* ── Filter bar ── */
+.filterBar {
+  border-bottom: 1px solid var(--color-border-subtle);
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 10;
+  background: rgba(13, 13, 13, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.filterBarInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.filterMeta {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Product grid ── */
+.grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 64px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Empty state ── */
+.empty {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 40px;
+  text-align: center;
+}
+
+.emptyText {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* ── Editorial note ── */
+.editorialNote {
+  border-top: 1px solid var(--color-border-subtle);
+  padding: 40px 0;
+}
+
+.editorialInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.editorialLine {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.editorialText {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  max-width: 560px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .pageHeaderInner,
+  .filterBarInner,
+  .editorialInner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .grid {
+    padding: 48px 32px;
+    gap: 40px 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pageHeader {
+    padding: 48px 0 36px;
+  }
+
+  .pageHeaderInner,
+  .filterBarInner,
+  .editorialInner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px 24px;
+    gap: 36px 20px;
+  }
+
+  .headingRow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filterMeta {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .pageHeaderInner,
+  .filterBarInner,
+  .editorialInner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 32px 20px;
+    gap: 32px;
+  }
+
+  .editorialInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

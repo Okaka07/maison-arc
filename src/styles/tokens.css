@@ -1,0 +1,46 @@
+:root {
+  /* ── Colours ── */
+  --color-bg:           #0d0d0d;
+  --color-bg-card:      #141414;
+  --color-bg-strip:     #111111;
+  --color-border:       #1e1e1e;
+  --color-border-subtle:#161616;
+
+  --color-gold:         #c9a84c;
+  --color-gold-light:   #d4b96a;
+  --color-gold-dim:     #8a6e2a;
+  --color-gold-tint:    rgba(201,168,76,0.08);
+
+  --color-text-primary: #e8e0d0;
+  --color-text-white:   #ffffff;
+  --color-text-secondary: #9a9080;
+  --color-text-muted:   #6b6258;
+  --color-text-faint:   #3a3530;
+
+  /* ── Typography ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── Spacing scale ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ── Motion ── */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:   150ms;
+  --duration-base:   250ms;
+  --duration-slow:   400ms;
+
+  /* ── Nav ── */
+  --nav-height: 64px;
+}

@@ -1,0 +1,440 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.main {
+  flex: 1;
+  padding-top: var(--nav-height);
+}
+
+.pageHeader {
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: 72px 0 52px;
+}
+
+.pageHeaderInner,
+.overviewInner,
+.statusInner,
+.serviceInner,
+.ctaInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.pageHeaderInner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.breadcrumbSep {
+  color: var(--color-text-faint);
+}
+
+.headingRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 40px;
+  align-items: end;
+}
+
+.headingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.headingAccent {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.headingMeta {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.subheading {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.sectionLabel,
+.ctaLabel {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.sectionHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.06;
+  margin-top: 12px;
+}
+
+.sectionBody {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  max-width: 460px;
+}
+
+.overview {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.overviewInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 56px;
+  align-items: start;
+}
+
+.profilePanel,
+.notePanel,
+.statusCard,
+.serviceCard {
+  border: 1px solid var(--color-border-subtle);
+  background: rgba(20, 20, 20, 0.92);
+}
+
+.profilePanel {
+  padding: 32px;
+}
+
+.detailList {
+  margin: 32px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.detailRow dt {
+  font-size: 0.6875rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.detailRow dd {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-white);
+  text-align: right;
+}
+
+.profileActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.notePanel {
+  padding: 28px;
+  position: sticky;
+  top: calc(var(--nav-height) + 32px);
+}
+
+.noteLabel {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-white);
+}
+
+.noteList {
+  margin-top: 20px;
+}
+
+.statusSection {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-strip);
+}
+
+.statusHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.statusCard {
+  padding: 32px;
+}
+
+.statusValue {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.statusLabel {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--color-text-white);
+  margin-bottom: 10px;
+}
+
+.statusDetail {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.serviceSection {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.serviceHeader {
+  max-width: 680px;
+  margin-bottom: 48px;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.serviceCard {
+  padding: 32px;
+}
+
+.serviceLine {
+  width: 24px;
+  height: 1px;
+  background: var(--color-gold);
+  margin-bottom: 20px;
+}
+
+.serviceTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--color-text-white);
+  margin-bottom: 12px;
+}
+
+.serviceBody {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  min-height: 126px;
+}
+
+.textButton {
+  margin-top: 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-white);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0 0 4px;
+  transition:
+    color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.textButton:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.cta {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.ctaInner {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaHeading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: var(--color-text-white);
+  line-height: 1.05;
+  margin: 16px 0 20px;
+}
+
+.ctaBody {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  max-width: 620px;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+@media (max-width: 1100px) {
+  .pageHeaderInner,
+  .overviewInner,
+  .statusInner,
+  .serviceInner,
+  .ctaInner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .headingRow,
+  .overviewInner,
+  .statusHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .notePanel {
+    position: static;
+  }
+
+  .statusGrid,
+  .serviceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .pageHeader {
+    padding: 52px 0 40px;
+  }
+
+  .pageHeaderInner,
+  .overviewInner,
+  .statusInner,
+  .serviceInner,
+  .ctaInner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .overview,
+  .statusSection,
+  .serviceSection {
+    padding: 64px 0;
+  }
+
+  .cta {
+    padding: 88px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .pageHeaderInner,
+  .overviewInner,
+  .statusInner,
+  .serviceInner,
+  .ctaInner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .profilePanel,
+  .notePanel,
+  .statusCard,
+  .serviceCard {
+    padding: 24px;
+  }
+
+  .statusGrid,
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailRow {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .detailRow dd {
+    text-align: left;
+  }
+
+  .profileActions,
+  .ctaActions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .serviceBody {
+    min-height: auto;
+  }
+}

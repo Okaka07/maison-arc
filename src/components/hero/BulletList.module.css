@@ -1,0 +1,22 @@
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.bullet {
+  color: var(--color-gold-dim);
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
