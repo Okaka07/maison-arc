@@ -3,5 +3,8 @@ dist/
 .vercel/
 .claude/
 *.local
+*.tsbuildinfo
+.tmp-vite.log
+.tmp-vite.err.log
 .DS_Store
 Thumbs.db

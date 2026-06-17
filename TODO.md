@@ -10,14 +10,6 @@
   - `SizeSelector` links to `/size-guide`, but no route exists in `App.tsx`.
   - Current behavior will leave users on an unhandled client route.
 
-- [ ] Add a catch-all not-found route.
-  - `App.tsx` has no `*` route.
-  - Unknown routes currently render an empty app shell because no route matches.
-
-- [ ] Fix the broken lint script.
-  - `package.json` defines `"lint": "eslint ."`, but `eslint` is not installed in `devDependencies`.
-  - Running `npm.cmd run lint` fails with `'eslint' is not recognized`.
-
 - [ ] Preserve product-page configuration when entering the standalone configurator.
   - Product detail pages let users choose material, color, sole, lining, hardware, lace, monogram, and size.
   - The `Begin Order` link only passes `?model=...`, so the standalone configurator resets all other choices to `DEFAULT_CONFIG`.
@@ -28,9 +20,13 @@
 
 ## Missing Product Features
 
-- [ ] Add real authentication/session handling.
-  - `/account` and `/my-designs` currently show static prototype data for a fictional client.
-  - There is no login, logout, session, user identity, or access control.
+- [ ] Replace the local demo auth flow with real backend authentication.
+  - Auth now exists only as a frontend-only prototype using localStorage-backed session state and seeded demo credentials.
+  - The app still needs real user records, passwordless/password auth strategy, secure token or cookie sessions, logout invalidation, and server-side authorization.
+
+- [ ] Add account registration, recovery, and session lifecycle UX.
+  - There is no sign-up, password reset, magic-link flow, session expiry handling, multi-device session management, or account recovery path.
+  - Login currently only supports a seeded demo client account.
 
 - [ ] Add persistence for saved designs.
   - `/my-designs` uses hardcoded `SAVED_DESIGNS`.
@@ -45,7 +41,7 @@
 
 - [ ] Add account editing actions.
   - Account page buttons such as `Review sizing`, `Update contact`, and `View aftercare` are static buttons with no behavior.
-  - Profile fields are read-only mock data.
+  - Profile fields are read-only and only partially connected to auth state.
 
 - [ ] Add service/aftercare history.
   - Account page mentions service credits and aftercare, but there is no completed-pair history or service request workflow.
@@ -110,7 +106,7 @@
   - Shared components should be introduced only once the patterns stabilize.
 
 - [ ] Move mock data out of page components.
-  - `AccountPage`, `MyDesignsPage`, and `LookbookPage` contain local arrays.
+  - `AccountPage`, `MyDesignsPage`, `LookbookPage`, and `LoginPage` contain local arrays/content constants.
   - Moving them to `src/data` would make the prototype easier to maintain.
 
 - [ ] Replace badge-string logic with typed fields.
@@ -130,6 +126,10 @@
 - [ ] Add CI checks.
   - No CI configuration is present.
   - Build, lint, and route smoke tests should run automatically.
+
+- [ ] Add real ESLint setup.
+  - `lint` currently maps to TypeScript typecheck only.
+  - Add ESLint configuration, React/TypeScript rules, and wire it into CI.
 
 ## Build and Environment Notes
 

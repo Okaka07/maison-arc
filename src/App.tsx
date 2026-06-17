@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import ProtectedRoute from './auth/ProtectedRoute'
 
 const HomePage        = lazy(() => import('./app/pages/HomePage'))
 const CollectionPage  = lazy(() => import('./app/pages/CollectionPage'))
@@ -10,6 +11,7 @@ const JournalPage      = lazy(() => import('./app/pages/JournalPage'))
 const JournalArticlePage = lazy(() => import('./app/pages/JournalArticlePage'))
 const AboutPage        = lazy(() => import('./app/pages/AboutPage'))
 const LookbookPage     = lazy(() => import('./app/pages/LookbookPage'))
+const LoginPage        = lazy(() => import('./app/pages/LoginPage'))
 const MyDesignsPage    = lazy(() => import('./app/pages/MyDesignsPage'))
 const AccountPage      = lazy(() => import('./app/pages/AccountPage'))
 const CartPage         = lazy(() => import('./app/pages/CartPage'))
@@ -31,11 +33,14 @@ export default function App() {
         <Route path="/journal/:articleId"  element={<JournalArticlePage />} />
         <Route path="/about"               element={<AboutPage />} />
         <Route path="/lookbook"            element={<LookbookPage />} />
-        <Route path="/my-designs"          element={<MyDesignsPage />} />
-        <Route path="/account"             element={<AccountPage />} />
-        <Route path="/cart"                element={<CartPage />} />
-        <Route path="/checkout"            element={<CheckoutPage />} />
-        <Route path="/order-confirmation"  element={<OrderConfirmationPage />} />
+        <Route path="/login"               element={<LoginPage />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/my-designs"        element={<MyDesignsPage />} />
+          <Route path="/account"           element={<AccountPage />} />
+          <Route path="/cart"              element={<CartPage />} />
+          <Route path="/checkout"          element={<CheckoutPage />} />
+          <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+        </Route>
         <Route path="/shared-design"       element={<SharedDesignPage />} />
         <Route path="/shared-design/:shareId" element={<SharedDesignPage />} />
         <Route path="*"                    element={<NotFoundPage />} />

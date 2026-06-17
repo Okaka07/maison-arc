@@ -5,12 +5,15 @@ import './styles/tokens.css'
 import './styles/globals.css'
 import App from './App'
 import ScrollToTop from './components/layout/ScrollToTop'
+import { AuthProvider } from './auth/AuthContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <ScrollToTop />
-      <App />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
   </StrictMode>,
 )

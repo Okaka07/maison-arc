@@ -4,19 +4,13 @@ import SeriesLabel from '../../components/hero/SeriesLabel'
 import BulletList from '../../components/hero/BulletList'
 import Button from '../../components/ui/Button'
 import { usePageTitle } from '../../hooks/usePageTitle'
+import { useAuth } from '../../auth/AuthContext'
 import styles from './AccountPage.module.css'
 
 const ACCOUNT_NOTES = [
   'Commission updates are sent by email',
   'Saved sizing is reviewed before production',
   'Service history stays attached to each completed pair',
-]
-
-const PROFILE_DETAILS = [
-  ['Client', 'Alexandre Moreau'],
-  ['Email', 'alexandre.moreau@example.com'],
-  ['Preferred size', 'EU 42 / UK 9 / US 10'],
-  ['Default monogram', 'AM'],
 ]
 
 const COMMISSION_STATUS = [
@@ -60,6 +54,14 @@ const SERVICE_ITEMS = [
 
 export default function AccountPage() {
   usePageTitle('Account')
+  const { user } = useAuth()
+
+  const profileDetails = [
+    ['Client', user?.name ?? 'Private Client'],
+    ['Email', user?.email ?? 'Not available'],
+    ['Preferred size', user?.preferredSize ?? 'Not available'],
+    ['Default monogram', user?.defaultMonogram ?? 'Not available'],
+  ]
 
   return (
     <div className={styles.page}>
@@ -88,7 +90,7 @@ export default function AccountPage() {
               </div>
 
               <p className={styles.headingMeta}>
-                Active client since 2024
+                Active client since {user?.memberSince ?? '2024'}
               </p>
             </div>
 
@@ -107,7 +109,7 @@ export default function AccountPage() {
                 Client details
               </h2>
               <dl className={styles.detailList}>
-                {PROFILE_DETAILS.map(([label, value]) => (
+                {profileDetails.map(([label, value]) => (
                   <div key={label} className={styles.detailRow}>
                     <dt>{label}</dt>
                     <dd>{value}</dd>
